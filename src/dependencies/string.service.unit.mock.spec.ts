@@ -1,16 +1,18 @@
 import { StringService } from './string.service';
 import { StringUtils } from './string-utils';
 
+jest.mock('./string-utils');
+
 describe('StringService', () => {
   let target: StringService;
-  const stringUtils = jest.mock<StringUtils>('./string-utils') as any;
+  const stringUtils = jest.createMockFromModule<StringUtils>('./string-utils');
 
   beforeEach(async () => {
     target = new StringService(stringUtils);
   });
 
   it('should be defined', () => {
-    stringUtils.toUpperCase.and.returnValue('XxX');
+    stringUtils.toUpperCase = jest.fn().mockReturnValue('XxX')
     expect(target.toUpperCase('ciao')).toBe('XxX');
   });
 });
