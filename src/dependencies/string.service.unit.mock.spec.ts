@@ -10,7 +10,6 @@ describe('StringService', () => {
   });
 
   it('should be defined', () => {
-    stringUtils.toUpperCase = jest.fn().mockReturnValue('XxX')
     expect(target.toUpperCase('ciao')).toBe('XxX');
   });
 });
