@@ -1,8 +1,6 @@
 import { StringService } from './string.service';
 import { StringUtils } from './string-utils';
 
-jest.mock('./string-utils');
-
 describe('StringService', () => {
   let target: StringService;
   const stringUtils = jest.createMockFromModule<StringUtils>('./string-utils');
