@@ -3,11 +3,7 @@ import { StringUtils } from './string-utils';
 
 @Injectable()
 export class StringService {
-  private stringUtils: StringUtils;
-
-  constructor(stringUtils: StringUtils) {
-    this.stringUtils = stringUtils;
-  }
+  constructor(private stringUtils: StringUtils) {}
 
   toUpperCase(input: string): string {
     return this.stringUtils.toUpperCase(input);
